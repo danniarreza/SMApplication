@@ -21,7 +21,6 @@ public class ProductController {
     @GetMapping("/product/{id}")
     public Product getProduct(@PathVariable int id){
         Product product = new Product(id, "Chicken", 10);
-
         return product;
     }
 

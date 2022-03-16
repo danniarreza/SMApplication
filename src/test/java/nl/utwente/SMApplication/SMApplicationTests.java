@@ -1,10 +1,10 @@
-package nl.UTwente.SMA;
+package nl.utwente.SMApplication;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SmaApplicationTests {
+class SMApplicationTests {
 
 	@Test
 	void contextLoads() {
