@@ -20,7 +20,7 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public Product getProduct(@PathVariable int id){
-        Product product = new Product(id, "Chicken", 10);
+        Product product = new Product(id, "Chicken", "kg");
         return product;
     }
 
@@ -29,7 +29,7 @@ public class ProductController {
         List<Product> productList = new ArrayList<Product>();
 
         for (int i = 0; i < 3; i++) {
-            Product product = new Product(i+1, "Chicken", 10);
+            Product product = new Product(i+1, "Chicken", "kg");
             productList.add(product);
         }
         

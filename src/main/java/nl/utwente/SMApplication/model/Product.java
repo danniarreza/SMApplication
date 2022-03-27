@@ -2,42 +2,39 @@ package nl.utwente.SMApplication.model;
 
 public class Product {
 
-    private int id;
-    private String name;
-    private int amount;
-
-    public int getId() {
-        return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
+    private int productId;
+    private String productName;
+    private String productUnit;
 
     public Product(){}
 
-    public Product(int id, String name, int amount){
-        this.id = id;
-        this.name = name;
-        this.amount = amount;
+    public Product(int productId, String productName, String productUnit) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productUnit = productUnit;
     }
 
+    public int getProductId() {
+        return productId;
+    }
 
-    
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductUnit() {
+        return productUnit;
+    }
+
+    public void setProductUnit(String productUnit) {
+        this.productUnit = productUnit;
+    }
 }
