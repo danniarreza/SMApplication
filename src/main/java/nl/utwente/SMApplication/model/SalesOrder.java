@@ -3,19 +3,42 @@ package nl.utwente.SMApplication.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
 public class SalesOrder {
 
-    private int orderId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer orderId;
     private String orderStatus;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private Client client;
+
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Goods> goodsList;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date proposedDeliveryDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date confirmedDeliveryDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date creationDate;
 
     public SalesOrder(){}
 
-    public SalesOrder(int orderId, String orderStatus, Client client, List<Goods> goodsList, Date proposedDeliveryDate, Date creationDate) {
+    public SalesOrder(Integer orderId, String orderStatus, Client client, List<Goods> goodsList, Date proposedDeliveryDate, Date creationDate) {
         this.orderId = orderId;
         this.orderStatus = orderStatus;
         this.client = client;
@@ -33,11 +56,11 @@ public class SalesOrder {
     }
 
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 

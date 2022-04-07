@@ -1,24 +1,29 @@
 package nl.utwente.SMApplication.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
 
-    private int productId;
+    @Id
+    private Integer productId;
     private String productName;
     private String productUnit;
 
     public Product(){}
 
-    public Product(int productId, String productName, String productUnit) {
+    public Product(Integer productId, String productName, String productUnit) {
         this.productId = productId;
         this.productName = productName;
         this.productUnit = productUnit;
     }
 
-    public int getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 

@@ -1,8 +1,22 @@
 package nl.utwente.SMApplication.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Goods {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int goodsId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
     private Product product;
     private int amount;
 
