@@ -25,7 +25,8 @@ public class SalesOrderService {
 
     public void createSalesOrder(SalesOrder salesOrder) {
 
-        String url = "http://localhost:8082/transportOrder";
+        // String url = "http://localhost:8082/transportOrder";
+        String url = "http://lma:8082/transportOrder";
 
         RestTemplate restTemplate = restTemplateBuilder.build();
         SalesOrder salesOrderResponse = restTemplate.postForObject(url, salesOrder, SalesOrder.class);
@@ -36,8 +37,10 @@ public class SalesOrderService {
     public void updateSalesOrder(SalesOrder salesOrder) {
 
         // define target url
-        String urlConfirmedDeliveryDate = "http://localhost:8080/salesOrder/" + salesOrder.getOrderId() + "/confirmedDeliveryDate";
-        String urlOrderStatus = "http://localhost:8080/salesOrder/" + salesOrder.getOrderId() + "/status";
+        // String urlConfirmedDeliveryDate = "http://localhost:8080/salesOrder/" + salesOrder.getOrderId() + "/confirmedDeliveryDate";
+        // String urlOrderStatus = "http://localhost:8080/salesOrder/" + salesOrder.getOrderId() + "/status";
+        String urlConfirmedDeliveryDate = "http://fca:8080/salesOrder/" + salesOrder.getOrderId() + "/confirmedDeliveryDate";
+        String urlOrderStatus = "http://fca:8080/salesOrder/" + salesOrder.getOrderId() + "/status";
 
         // create a variable to update sales order's delivery date
         Map<String, Date> salesOrderConfirmedDeliveryDate = new HashMap<>();
@@ -64,7 +67,8 @@ public class SalesOrderService {
             Product product = goods.getProduct();
 
             // define target url
-            String url = "http://localhost:8082/product/" + product.getProductId() + "/inventory";
+            // String url = "http://localhost:8082/product/" + product.getProductId() + "/inventory";
+            String url = "http://lma:8082/product/" + product.getProductId() + "/inventory";
 
             RestTemplate restTemplate = restTemplateBuilder.build();
             Inventory inventory = restTemplate.getForObject(url, Inventory.class);
@@ -81,7 +85,8 @@ public class SalesOrderService {
     public void notifySalesOrderStatus(SalesOrder salesOrder){
 
         // define target url
-        String url = "http://localhost:8080/salesOrder/" + salesOrder.getOrderId() + "/status";
+        // String url = "http://localhost:8080/salesOrder/" + salesOrder.getOrderId() + "/status";
+        String url = "http://fca:8080/salesOrder/" + salesOrder.getOrderId() + "/status";
 
         // create a variable to update sales order's rejection status
         Map<String, String> salesOrderStatus = new HashMap<>();
